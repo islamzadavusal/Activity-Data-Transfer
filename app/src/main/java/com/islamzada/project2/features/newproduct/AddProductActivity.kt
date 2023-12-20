@@ -11,7 +11,6 @@ import com.islamzada.project2.R
 import com.islamzada.project2.databinding.ActivityAddProductBinding
 import com.islamzada.project2.databinding.ActivityMainBinding
 import com.islamzada.project2.features.model.Product
-import com.islamzada.project2.features.productlist.MainActivity
 import com.islamzada.project2.features.productlist.MainViewModel
 
 class AddProductActivity : AppCompatActivity() {
@@ -44,8 +43,7 @@ class AddProductActivity : AppCompatActivity() {
             intent.putExtra("product", product)
 
             setResult(RESULT_OK, intent)
-
-            openAddProductActivity()
+            finish()
         }
 
         viewModel.error.observe(this) {
@@ -54,12 +52,4 @@ class AddProductActivity : AppCompatActivity() {
             }
         }
     }
-
-    fun openAddProductActivity(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-
-    }
-
-
 }
