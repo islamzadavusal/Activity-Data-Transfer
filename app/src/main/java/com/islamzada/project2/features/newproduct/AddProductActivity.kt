@@ -11,6 +11,7 @@ import com.islamzada.project2.R
 import com.islamzada.project2.databinding.ActivityAddProductBinding
 import com.islamzada.project2.databinding.ActivityMainBinding
 import com.islamzada.project2.features.model.Product
+import com.islamzada.project2.features.productlist.MainActivity
 import com.islamzada.project2.features.productlist.MainViewModel
 
 class AddProductActivity : AppCompatActivity() {
@@ -36,21 +37,29 @@ class AddProductActivity : AppCompatActivity() {
         observeAll()
     }
 
-    fun observeAll(){
-        viewModel.newProductCallBack.observe(this){
+    fun observeAll() {
+        viewModel.newProductCallBack.observe(this) {
             val intent = Intent()
-            val product = Product(10,"test", "test test")
-            intent.putExtra("product",product)
+            val product = Product(viewModel.name.value.orEmpty(), viewModel.code.value.orEmpty(), viewModel.description.value.orEmpty())
+            intent.putExtra("product", product)
 
             setResult(RESULT_OK, intent)
-            finish()
 
+            openAddProductActivity()
         }
 
-        viewModel.error.observe(this){
-            if (!it.isNullOrEmpty()){
+        viewModel.error.observe(this) {
+            if (!it.isNullOrEmpty()) {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
             }
         }
     }
+
+    fun openAddProductActivity(){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+
+    }
+
+
 }
