@@ -27,7 +27,7 @@ class ProductListAdapter(val context: Context, private var productList: MutableL
 
         var newConvertView = convertView
 
-        var holder : ViewHolder
+        val holder : ViewHolder
 
         if (convertView == null) {
             val binding: ListItemProductBinding = DataBindingUtil.inflate(
@@ -41,7 +41,7 @@ class ProductListAdapter(val context: Context, private var productList: MutableL
             holder = ViewHolder(binding)
             holder.bind(productList[position])
 
-            newConvertView?.tag = holder
+            newConvertView.tag = holder
 
             return binding.root
 
