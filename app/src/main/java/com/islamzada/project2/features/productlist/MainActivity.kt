@@ -8,6 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.islamzada.project2.R
 import com.islamzada.project2.databinding.ActivityMainBinding
+import com.islamzada.project2.features.adapters.ProductListAdapter
 import com.islamzada.project2.features.model.Product
 import com.islamzada.project2.features.newproduct.AddProductActivity
 
@@ -22,9 +23,19 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
 
-        setContentView(binding.root)
+
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        setContentView(binding.root)
+
+        val items = mutableListOf<Product>()
+        items.add(Product("cc",0,"cc"))
+        items.add(Product("cc",1,"cc"))
+        items.add(Product("cc",2,"cc"))
+
+        val adapter = ProductListAdapter(this.baseContext, items)
+        binding.productList.adapter = adapter
     }
 
     fun openAddProductActivity(){
