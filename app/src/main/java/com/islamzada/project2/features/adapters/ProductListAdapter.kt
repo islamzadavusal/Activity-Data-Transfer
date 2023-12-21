@@ -10,7 +10,12 @@ import com.islamzada.project2.R
 import com.islamzada.project2.databinding.ListItemProductBinding
 import com.islamzada.project2.features.model.Product
 
-class ProductListAdapter(val context: Context, private var productList: MutableList<Product>) : BaseAdapter() {
+class ProductListAdapter(val context: Context, private var productList: MutableList<Product>, var onClick: (Product) -> Unit) : BaseAdapter() {
+
+    fun addNewItem(aProduct: Product) {
+        productList.add(aProduct)
+        notifyDataSetChanged()
+    }
     override fun getCount(): Int {
         return productList.count()
     }
@@ -27,7 +32,7 @@ class ProductListAdapter(val context: Context, private var productList: MutableL
 
         var newConvertView = convertView
 
-        val holder : ViewHolder
+        var holder : ViewHolder
 
         if (convertView == null) {
             val binding: ListItemProductBinding = DataBindingUtil.inflate(
@@ -38,10 +43,10 @@ class ProductListAdapter(val context: Context, private var productList: MutableL
             )
 
             newConvertView = binding.root
-            holder = ViewHolder(binding)
+            holder = ViewHolder(binding, onClick)
             holder.bind(productList[position])
 
-            newConvertView.tag = holder
+            newConvertView?.tag = holder
 
             return binding.root
 
@@ -53,15 +58,21 @@ class ProductListAdapter(val context: Context, private var productList: MutableL
         return newConvertView!!
     }
 
-    private class ViewHolder(var binding: ListItemProductBinding) {
+    private class ViewHolder(var binding: ListItemProductBinding, var onClick: (Product) -> Unit) {
         fun bind(product: Product){
 
             binding.productName.text = product.name
             binding.productCode.text = product.code.toString()
             binding.productDetail.text = product.desc
+
+            binding.product = product
+
+            binding.root.setOnClickListener {
+                onClick(binding.product as Product)
+
+
+            }
         }
-
-
     }
 
 }

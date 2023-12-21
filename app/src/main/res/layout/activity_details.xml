@@ -7,63 +7,71 @@
     <data>
 
         <variable
-            name="product"
-            type="com.islamzada.project2.features.model.Product" />
+            name="viewModel"
+            type="com.islamzada.project2.features.details.DetailsViewModel" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_margin="10dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.5">
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/product_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    tools:text="gg"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"/>
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:text="@{viewModel.name}"
+                    tools:text="gg" />
 
                 <TextView
                     android:id="@+id/product_code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    tools:text="gg"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"/>
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:text="@{viewModel.code}"
+                    tools:text="gg" />
 
                 <TextView
                     android:id="@+id/product_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
-                    tools:text="gg"
-                    android:layout_margin="5dp"
-                    android:padding="5dp"/>
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textSize="30dp"
+                    android:text="@{viewModel.description}"
+                    tools:text="gg" />
 
 
             </LinearLayout>
-
-
 
 
         </androidx.cardview.widget.CardView>

@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel : MainViewModel
 
+    lateinit var adapter : ProductListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -29,12 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        val items = mutableListOf<Product>()
-        items.add(Product("cc",0,"cc"))
-        items.add(Product("cc",1,"cc"))
-        items.add(Product("cc",2,"cc"))
+//        val items = mutableListOf<Product>()
 
-        val adapter = ProductListAdapter(this.baseContext, items)
+        adapter = ProductListAdapter (this.baseContext, mutableListOf(), onClick = {
+        println("Clicked:  Name = ${it.name}, Code = ${it.code}, Description = ${it.desc}")
+
+        })
+
         binding.productList.adapter = adapter
     }
 
@@ -49,6 +52,9 @@ class MainActivity : AppCompatActivity() {
         if (it.resultCode == Activity.RESULT_OK){
             val item = it.data?.getParcelableExtra<Product>("product")
             println(item)
+            item?.let {
+                adapter.addNewItem(it)
+            }
         }
     }
 
