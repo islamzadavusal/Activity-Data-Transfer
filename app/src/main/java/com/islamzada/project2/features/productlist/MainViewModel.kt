@@ -7,14 +7,8 @@ class MainViewModel: ViewModel() {
 
     var addProductObserver = MutableLiveData<Boolean>()
 
-    var result = MutableLiveData<String>()
-
     fun onAddNewProduct(){
         addProductObserver.postValue(true)
     }
 
-    fun newProductAdded(){
-        result.postValue("")
-
     }
-}
