@@ -1,17 +1,12 @@
 package com.islamzada.project2.features.newproduct
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
-import com.islamzada.project2.R
 import com.islamzada.project2.databinding.ActivityAddProductBinding
-import com.islamzada.project2.databinding.ActivityMainBinding
 import com.islamzada.project2.features.model.Product
-import com.islamzada.project2.features.productlist.MainViewModel
 
 class AddProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddProductBinding
