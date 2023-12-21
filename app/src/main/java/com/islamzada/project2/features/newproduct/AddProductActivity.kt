@@ -14,8 +14,8 @@ import com.islamzada.project2.features.model.Product
 import com.islamzada.project2.features.productlist.MainViewModel
 
 class AddProductActivity : AppCompatActivity() {
-    lateinit var binding: ActivityAddProductBinding
-    lateinit var viewModel: AddPostViewModel
+    private lateinit var binding: ActivityAddProductBinding
+    private lateinit var viewModel: AddPostViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
