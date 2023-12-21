@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Project #2</string>
 
-    <string name="add_new_product">ADD NEW PRODUCT</string>
-    <string name="next">NEXT</string>
+    <string name="add_new_product">ADD</string>
+    <string name="next">ADD NEW PRODUCT</string>
 
 </resources>

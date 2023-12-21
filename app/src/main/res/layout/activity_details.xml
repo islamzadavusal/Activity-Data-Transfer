@@ -14,6 +14,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:background="@color/white"
         android:layout_height="match_parent">
 
         <androidx.cardview.widget.CardView
@@ -24,6 +25,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#0A1553"
             app:cardCornerRadius="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,8 +45,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="5dp"
+                    android:textColor="@color/white"
                     android:gravity="center"
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:text="@{viewModel.name}"
                     tools:text="gg" />
 
@@ -54,8 +57,9 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="5dp"
+                    android:textColor="@color/white"
                     android:gravity="center"
-                    android:textSize="30dp"
+                    android:textSize="25dp"
                     android:text="@{viewModel.code}"
                     tools:text="gg" />
 
@@ -65,9 +69,10 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:padding="5dp"
+                    android:textColor="@color/white"
                     android:gravity="center"
-                    android:textSize="30dp"
-                    android:text="@{viewModel.description}"
+                    android:textSize="25dp"
+                    android:text="@{viewModel.desc}"
                     tools:text="gg" />
 
 

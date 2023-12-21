@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.islamzada.project2.R
 import com.islamzada.project2.databinding.ActivityMainBinding
 import com.islamzada.project2.features.adapters.ProductListAdapter
+import com.islamzada.project2.features.details.DetailsActivity
 import com.islamzada.project2.features.model.Product
 import com.islamzada.project2.features.newproduct.AddProductActivity
 
@@ -35,10 +36,20 @@ class MainActivity : AppCompatActivity() {
 
         adapter = ProductListAdapter (this.baseContext, mutableListOf(), onClick = {
         println("Clicked:  Name = ${it.name}, Code = ${it.code}, Description = ${it.desc}")
-
+            openDetailsActivity(it)
         })
 
         binding.productList.adapter = adapter
+    }
+
+
+    //
+    fun openDetailsActivity(product: Product) {
+        val intent = Intent(this, DetailsActivity::class.java)
+        intent.putExtra("name", product.name)
+        intent.putExtra("code", product.code)
+        intent.putExtra("desc", product.desc)
+        startActivity(intent)
     }
 
     fun openAddProductActivity(){
