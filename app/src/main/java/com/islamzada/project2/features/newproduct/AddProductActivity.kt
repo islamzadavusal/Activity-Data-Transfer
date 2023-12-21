@@ -24,8 +24,6 @@ class AddProductActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[AddPostViewModel::class.java]
 
-        binding = ActivityAddProductBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
@@ -39,7 +37,7 @@ class AddProductActivity : AppCompatActivity() {
     fun observeAll() {
         viewModel.newProductCallBack.observe(this) {
             val intent = Intent()
-            val product = Product(viewModel.name.value.orEmpty(), viewModel.code.value.orEmpty(), viewModel.description.value.orEmpty())
+            val product = Product(viewModel.name.value.orEmpty(), viewModel.code.value.orEmpty().toInt(), viewModel.description.value.orEmpty())
             intent.putExtra("product", product)
 
             setResult(RESULT_OK, intent)

@@ -37,9 +37,10 @@
 
             <EditText
                 android:id="@+id/code"
-                android:text="@={viewModel.code}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:text="@={viewModel.code}" />
 
             <EditText
                 android:id="@+id/description"
