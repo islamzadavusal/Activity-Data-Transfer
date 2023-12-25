@@ -29,8 +29,8 @@ class DetailsActivity : AppCompatActivity() {
         val code = intent.getIntExtra("code", 0).toString()
         val desc = intent.getStringExtra("desc")
 
-        viewModel.name.value = "Product name: ${name}"
-        viewModel.code.value = "Product code: ${code}"
-        viewModel.desc.value = "Product description: ${desc}"
+        viewModel.name.value = "Product name: $name"
+        viewModel.code.value = "Product code: $code"
+        viewModel.desc.value = "Product description: $desc"
     }
 }
